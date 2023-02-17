@@ -10,9 +10,8 @@ const GithubUserList = () => {
   };
 
   const handleAddUsername = async () => {
-    // Fetch the data for the new username and add it to the state
     const response = await fetch(`https://api.github.com/users/${newUsername}`);
-    if (response.ok) {
+    if (response.status == 200) {
       const data = await response.json();
       setUsernames([...usernames, data.login]);
     }
